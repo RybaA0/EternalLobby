@@ -23,18 +23,14 @@ public class LobbySwitcherConfiguration {
     public static class Settings {
         public FillSettings fill = new FillSettings();
 
+        @Description({ StringUtils.EMPTY, "# Do you want enable lobby switcher feature?" })
+        public boolean enableLobbySwitcher = true;
+
         @Description({ StringUtils.EMPTY })
         public String guiTitle = "Wybór lobby:";
 
         @Description({ StringUtils.EMPTY })
         public int guiRows = 3;
-
-        @Contextual
-        public static class FillSettings {
-            @Description({ "# Fill item options" })
-            public boolean enableFillItems = true;
-            public List<Material> fillItems = Arrays.asList(Material.BLACK_STAINED_GLASS_PANE, Material.GRAY_STAINED_GLASS_PANE);
-        }
 
         @Description({ StringUtils.EMPTY })
         public Map<Integer, LobbySwitcherItem> items = ImmutableMap.of(
@@ -46,5 +42,24 @@ public class LobbySwitcherConfiguration {
             6, new LobbySwitcherItem("Lobby #5", 7, Material.QUARTZ_BLOCK, new ArrayList<>(), "lobby5", true),
             7, new LobbySwitcherItem("Lobby #6", 8, Material.QUARTZ_BLOCK, new ArrayList<>(), "lobby6", true)
         );
+
+        @Contextual
+        public static class FillSettings {
+            @Description({ "# Fill item options" })
+
+            @Description({ StringUtils.EMPTY, "# Do you want to enable fill empty slots in gui?" })
+            public boolean enableFillItems = true;
+
+            @Description({ StringUtils.EMPTY, "# List of materials to fill empty slots in gui" })
+            @Description({
+                StringUtils.EMPTY,
+                "# Examples: ",
+                "#  One item: ",
+                "#    fillItems: BLACK_STAINED_GLASS_PANE",
+                "#  Multiple items: ",
+                "#    fillItems: BLACK_STAINED_GLASS_PANE, GRAY_STAINED_GLASS_PANE"
+            })
+            public List<Material> fillItems = Arrays.asList(Material.BLACK_STAINED_GLASS_PANE, Material.GRAY_STAINED_GLASS_PANE);
+        }
     }
 }

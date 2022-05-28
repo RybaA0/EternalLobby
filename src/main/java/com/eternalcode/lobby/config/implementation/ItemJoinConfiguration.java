@@ -1,5 +1,6 @@
 package com.eternalcode.lobby.config.implementation;
 
+import com.cryptomorin.xseries.XMaterial;
 import com.eternalcode.lobby.feature.hotbar.itemjoin.JoinItem;
 import com.google.common.collect.ImmutableMap;
 import net.dzikoysk.cdn.entity.Contextual;
@@ -17,8 +18,8 @@ public class ItemJoinConfiguration {
     @Contextual
     public static class Settings {
         public Map<Integer, JoinItem> slots = ImmutableMap.of(
-                1, new JoinItem("&bGame selector", 0, Material.GRASS_BLOCK, new ArrayList<>(), "/lobby server-selector"),
-                3, new JoinItem("&bLobby selector", 8, Material.DRAGON_EGG, new ArrayList<>(), "/lobby lobby-switcher")
+                1, new JoinItem("&bGame selector", 0, XMaterial.COMPASS.parseMaterial(), new ArrayList<>(), "/lobby server-selector"),
+                3, new JoinItem("&bLobby selector", 8, XMaterial.NETHER_STAR.parseMaterial(), new ArrayList<>(), "/lobby lobby-switcher")
         );
     }
 }

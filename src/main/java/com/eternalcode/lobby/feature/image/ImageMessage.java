@@ -9,6 +9,11 @@ import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
+/**
+ * This class originally was created by arxenix.
+ * GitHub: https://github.com/arxenix/ImageMessage
+ * It was modified by EternalCode.
+ */
 
 class ImageMessage {
     private final static char TRANSPARENT_CHAR = ' ';

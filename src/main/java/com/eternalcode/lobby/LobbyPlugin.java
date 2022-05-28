@@ -73,7 +73,7 @@ public class LobbyPlugin extends JavaPlugin {
 
         this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
-        this.liteCommands = LiteBukkitFactory.builder(this.getServer(), "eternalmc-lobby")
+        this.liteCommands = LiteBukkitFactory.builder(this.getServer(), "EternalLobby")
             .typeBind(PluginConfiguration.class,            () -> pluginConfig)
             .typeBind(LocationConfiguration.class,          () -> locationsConfig)
             .typeBind(ServerSelectorConfiguration.class,    () -> serverSelectorConfig)
@@ -97,7 +97,7 @@ public class LobbyPlugin extends JavaPlugin {
             new PlayerDamageListener(),
             new PlayerDeathListener(),
             new PlayerFoodListener(),
-            new PlayerJoinListener(locationsConfig),
+            new PlayerJoinListener(locationsConfig, pluginConfiguration),
             new PlayerQuitListener(),
             new ImageController(pluginConfig, this.miniMessage, this),
             new DoubleJumpController(pluginConfig),

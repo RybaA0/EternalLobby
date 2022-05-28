@@ -1,5 +1,6 @@
 package com.eternalcode.lobby.config.implementation;
 
+import com.cryptomorin.xseries.XMaterial;
 import com.eternalcode.lobby.feature.menus.serverselector.ServerSelectorItem;
 import com.google.common.collect.ImmutableMap;
 import net.dzikoysk.cdn.entity.Contextual;
@@ -32,14 +33,14 @@ public class ServerSelectorConfiguration {
             @Description({ "# Fill item options" })
             public boolean enableFillItems = true;
 
-            public List<Material> fillItems = Arrays.asList(Material.BLACK_STAINED_GLASS_PANE, Material.GRAY_STAINED_GLASS_PANE);
+            public List<Material> fillItems = Arrays.asList(XMaterial.BLACK_STAINED_GLASS_PANE.parseMaterial(), XMaterial.GRAY_STAINED_GLASS_PANE.parseMaterial());
         }
 
         @Description({ StringUtils.EMPTY })
         public Map<Integer, ServerSelectorItem> items = ImmutableMap.of(
-            1, new ServerSelectorItem("Survival", 11, Material.GRASS_BLOCK, new ArrayList<>(), "survival", true),
-            2, new ServerSelectorItem("Creative", 13, Material.BRICK, new ArrayList<>(), "creative", true),
-            3, new ServerSelectorItem("Spectator", 15, Material.DRAGON_EGG, new ArrayList<>(), "War of the Ender", true)
+            1, new ServerSelectorItem("Survival", 11, XMaterial.GRASS_BLOCK.parseMaterial(), new ArrayList<>(), "survival", true),
+            2, new ServerSelectorItem("Creative", 13, XMaterial.BRICK.parseMaterial(), new ArrayList<>(), "creative", true),
+            3, new ServerSelectorItem("Spectator", 15, XMaterial.DRAGON_EGG.parseMaterial(), new ArrayList<>(), "War of the Ender", true)
         );
     }
 }

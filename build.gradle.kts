@@ -32,13 +32,16 @@ dependencies {
     implementation("net.kyori:adventure-text-minimessage:4.10.1")
 
     // LiteCommands
-    implementation("dev.rollczi.litecommands:bukkit:2.0.0-pre15")
+    implementation("dev.rollczi.litecommands:bukkit:2.0.0-pre17")
 
     // cdn configs
     implementation("net.dzikoysk:cdn:1.13.22")
 
     // expressible
     implementation("org.panda-lang:expressible:1.1.19")
+
+    // XSeries
+    implementation("com.github.cryptomorin:XSeries:8.7.1")
 
     // triumph
     implementation("dev.triumphteam:triumph-gui:3.1.2")
@@ -57,23 +60,23 @@ tasks.getByName<Test>("test") {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 tasks {
     runServer {
-        minecraftVersion("1.18.2")
+        minecraftVersion("1.8.8")
     }
 }
 
 bukkit {
     main = "com.eternalcode.lobby.LobbyPlugin"
     apiVersion = "1.18"
-    prefix = "EternalMC-Lobby"
+    prefix = "EternalLobby"
     author = "vLucky"
-    name = "EternalMC-Lobby"
-    description = "A lobby plugin by EternalCodeTeam (vLucky)"
+    name = "EternalLobby"
+    description = "A lobby plugin by EternalCodeTeam"
     version = "${project.version}"
     depend = listOf(
         "PlaceholderAPI"

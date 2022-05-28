@@ -37,6 +37,7 @@ public class ImageController implements Listener {
             }
         }
 
+
         if (this.pluginConfiguration.enableWelcomeMessage) {
 
             if (this.pluginConfiguration.welcomeMessageHeadDisplay) {
@@ -59,8 +60,11 @@ public class ImageController implements Listener {
                 });
             }
 
-            this.pluginConfiguration.messageAfterJoin.forEach(message ->
-                player.sendMessage(Legacy.LEGACY_AMPERSAND_SERIALIZER.serialize(miniMessage.deserialize(PlaceholderAPI.setPlaceholders(player, message)))));
+            if (!this.pluginConfiguration.welcomeMessageHeadDisplay) {
+                this.pluginConfiguration.messageAfterJoin.forEach(message ->
+                    player.sendMessage(Legacy.LEGACY_AMPERSAND_SERIALIZER.serialize(miniMessage.deserialize(PlaceholderAPI.setPlaceholders(player, message)))));
+
+            }
         }
     }
 }
